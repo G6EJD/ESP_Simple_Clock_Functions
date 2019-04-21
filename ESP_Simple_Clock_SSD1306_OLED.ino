@@ -66,7 +66,7 @@ void loop() {
   UpdateLocalTime(Time_format);
   display.clear();
   display.drawString(20, 10, Date_str);
-  if (Time_format = "I")
+  if (Time_format == "I")
     display.drawString(20, 35, Time_str); // Adjust for addition of AM/PM indicator
   else
     display.drawString(35, 35, Time_str);
