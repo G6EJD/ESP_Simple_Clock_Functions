@@ -31,7 +31,7 @@ const char* Timezone = "GMT0BST,M3.5.0/01,M10.5.0/02";       // UK
 
 String Date_str, Time_str;
 unsigned int local_Unix_time = 0, next_update_due = 0;
-unsigned int update_duration = 60; // Time duration in seconds
+unsigned int update_duration = 60*60; // Time duration in seconds, so synchronise every hour
 
 void setup() {
   Serial.begin(115200);
