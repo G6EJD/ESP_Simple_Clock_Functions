@@ -30,8 +30,8 @@ const char* Timezone = "GMT0BST,M3.5.0/01,M10.5.0/02";       // UK
 //const char* Timezone = "ACST-9:30ACDT,M10.1.0,M4.1.0/3":   // Australia
 
 String Date_str, Time_str;
-unsigned int local_Unix_time = 0, next_update_due = 0;
-unsigned int update_duration = 60*60; // Time duration in seconds, so synchronise every hour
+volatile unsigned int local_Unix_time = 0, next_update_due = 0;
+volatile unsigned int update_duration = 60*60; // Time duration in seconds, so synchronise every hour
 
 void setup() {
   Serial.begin(115200);
