@@ -51,7 +51,7 @@ String Date_str, Time_str, Time_format;
 
 void setup() {
   Serial.begin(115200);
-  Wire.begin(SDA, SCL); // (sda,scl)    // Start the Wire service for the OLED display using pin=D4 for SCL and Pin-D3 for SDA
+  Wire.begin(SDA, SCL, 100000);       // (sda,scl,bus_speed) Start the Wire service for the OLED display using pin=D4 for SCL and Pin-D3 for SDA
   display.init();                     // Initialise the display
   display.flipScreenVertically();     // In my case flip the screen around by 180°
   display.setContrast(255);           // If you want turn the display contrast down, 255 is maxium and 0 in minimum, in practice about 128 is OK
