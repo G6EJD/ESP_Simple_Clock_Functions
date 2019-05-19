@@ -27,6 +27,7 @@
 #endif
 
 #include "time.h" 
+#include <Wire.h>
 #include "SSD1306.h"               // See https://github.com/squix78/esp8266-oled-ssd1306 or via Sketch/Include Library/Manage Libraries
 SSD1306 display(0x3c, SDA, SCL);   // OLED display object definition (address, SDA, SCL)
 
@@ -51,7 +52,11 @@ String Date_str, Time_str, Time_format;
 
 void setup() {
   Serial.begin(115200);
+  #if ESP8266
+  Wire.begin(SDA, SCL);               // (sda,scl,bus_speed) Start the Wire service for the OLED display using pin=D4 for SCL and Pin-D3 for SDA
+  #else
   Wire.begin(SDA, SCL, 100000);       // (sda,scl,bus_speed) Start the Wire service for the OLED display using pin=D4 for SCL and Pin-D3 for SDA
+  #endif  
   display.init();                     // Initialise the display
   display.flipScreenVertically();     // In my case flip the screen around by 180°
   display.setContrast(255);           // If you want turn the display contrast down, 255 is maxium and 0 in minimum, in practice about 128 is OK
