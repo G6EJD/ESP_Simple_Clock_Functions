@@ -1,7 +1,8 @@
 #include <ESP8266WiFi.h> // or #include <WiFI.h> for ESP32
 #include <time.h>
 void setup(){
-  WiFi.begin("your_ssid","your_password");
+ Serial.begin(115200);
+ WiFi.begin("your_ssid","your_password");
   configTime(0, 0, "pool.ntp.org", "time.nist.gov");
   // See https://github.com/nayarsystems/posix_tz_db/blob/master/zones.csv for Timezone codes for your region
   setenv("TZ", "GMT0BST,M3.5.0/01,M10.5.0/02", 1);
