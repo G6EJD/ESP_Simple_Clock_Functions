@@ -93,7 +93,7 @@ void StartWiFi() {
     delay(500);
     Serial.print(F("."));
   }
-  Serial.println("WiFi connected to address: " + String(WiFi.localIP()));
+  Serial.println("WiFi connected at: " + WiFi.localIP().toString());
 }
 
 //#########################################################################################
